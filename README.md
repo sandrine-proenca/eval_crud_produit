@@ -38,6 +38,8 @@ $ npm install --save @nestjs/swagger @nestjs/config
 
 $ npm install --save @nestjs/typeorm typeorm pg
 
+$ npm i --save class-validator class-transformer
+
 ```
 ### Création des tables typeorm dans le Terminal 'bash':
 
