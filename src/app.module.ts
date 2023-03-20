@@ -9,7 +9,7 @@ import { ProduitsModule } from './produits/produits.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({isGlobal: true}),
     TypeOrmModule.forRoot({
       type: "postgres",
       host: process.env.DB_HOST,
@@ -19,7 +19,7 @@ import { ProduitsModule } from './produits/produits.module';
       database: process.env.DB_NAME,
       entities: [Produit],
       synchronize: true,
-      logging: false
+      logging: true,
     }),
     ProduitsModule],
   controllers: [AppController],

@@ -32,13 +32,17 @@ $ npm install
 
 $ npm install -g @nestjs/cli
 
-$ nest new back_voyager_dans_le_temps
+$ nest new .
 
 $ npm install --save @nestjs/swagger @nestjs/config
 
 $ npm install --save @nestjs/typeorm typeorm pg
 
 $ npm i --save class-validator class-transformer
+
+$ npm install --save @nestjs/serve-static
+
+$ npm install --save postgres
 
 ```
 ### Création des tables typeorm dans le Terminal 'bash':

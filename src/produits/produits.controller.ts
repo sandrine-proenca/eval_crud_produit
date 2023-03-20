@@ -4,19 +4,21 @@ import { CreateProduitDto } from './dto/create-produit.dto';
 import { UpdateProduitDto } from './dto/update-produit.dto';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 
+
 @ApiTags('PRODUITS')
 @Controller('produits')
 export class ProduitsController
 {
   constructor(private readonly produitsService: ProduitsService) { }
 
+
   @ApiBody({ type: CreateProduitDto })
   @ApiOperation({ summary: `Creating a product.` })
   @Post()
   //Creating a product.
-  async create(@Body() createProduitDto: CreateProduitDto)
+  async create ( @Body() createProduitDto: CreateProduitDto )
   {
-    const produitExist = await this.produitsService.findByName(createProduitDto.name)
+    const produitExist = await this.produitsService.findByName(createProduitDto.name)    
 
     // Message to wander if the product exists.
     if (produitExist)
@@ -25,12 +27,14 @@ export class ProduitsController
     }
     // Creating a product that doesn't already exist.
     const newProduit = this.produitsService.create(createProduitDto);
+    
     return {
       StatusCode: 201,
       message: `Successful product creation.`,
       data: newProduit
     }
   }
+
 
   @ApiBody({ type: CreateProduitDto })
   @ApiOperation({ summary: `Recovery of all products.` })
@@ -45,6 +49,7 @@ export class ProduitsController
       data: allProduits
     };
   }
+
 
   @ApiBody({ type: CreateProduitDto })
   @ApiOperation({ summary: `Recovery of a product by its id.` })
@@ -67,6 +72,7 @@ export class ProduitsController
     };
   }
 
+  
   @ApiOperation({ summary: `Modification of a product by its id.` })
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateProduitDto: UpdateProduitDto)

@@ -3,15 +3,19 @@ import { CreateProduitDto } from './dto/create-produit.dto';
 import { UpdateProduitDto } from './dto/update-produit.dto';
 import { Produit } from './entities/produit.entity';
 
+
 @Injectable()
 export class ProduitsService
 {
 
+
   /* Creating a new product. */
-  create(createProduitDto: CreateProduitDto | any)
+  async create(createProduitDto: CreateProduitDto)
   {
-    return Produit.save(createProduitDto)
+    const newProduit = Produit.create({...createProduitDto})
+    return await newProduit.save()
   }
+
 
   /* Recovery of all products. */
   async findAll()
@@ -19,11 +23,13 @@ export class ProduitsService
     return await Produit.find();
   }
 
+
   /* Recovery of a product by name. */
   async findByName(name: string)
   {
-    return await Produit.findBy({ name })
+    return await Produit.findOneBy({ name })
   }
+
 
   /* Recovery of a product by its id. */
   async findOne(id: number)
@@ -31,12 +37,14 @@ export class ProduitsService
     return await Produit.findOneBy({ id });
   }
 
+
   /* Modification of a product by its id. */
   async update(id: number, updateProduitDto: UpdateProduitDto)
   {
     return await Produit.update(id, updateProduitDto);
   }
 
+  
   /* Deleting a product by its id. */
   async remove(id: number)
   {
