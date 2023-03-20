@@ -1,9 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { CreateProduitDto } from "../dto/create-produit.dto";
 
 
-@Entity('produits')
-export class Produit {
+@Entity()
+export class Produit extends BaseEntity {
     @ApiProperty()
     @PrimaryGeneratedColumn()
     id: number
