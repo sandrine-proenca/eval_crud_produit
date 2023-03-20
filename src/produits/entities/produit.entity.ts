@@ -18,5 +18,5 @@ export class Produit {
 
     @ApiProperty()
     @Column()
-    quantity:string
+    quantity:number
 }
