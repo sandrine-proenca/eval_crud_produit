@@ -1,6 +1,7 @@
-# EVALUATION: CRUD PRODUIT
+#  PARTIE BACK: CRUD PRODUIT
 
 ### Vous êtes chargé de:
+
 Créer un dashboard admin afin de pouvoir lire creer modifier supprimer des produits via une API.
 
 Chaque produit sera composé de:
